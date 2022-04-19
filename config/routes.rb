@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => "homes#about", as: 'about'
-    resources :users, only: [:index, :show, :edit]
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   # 管理者用
