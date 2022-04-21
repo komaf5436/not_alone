@@ -1,5 +1,7 @@
 <h1>投稿一覧</h1>
 
+<%= link_to '新規', new_post_path %>
+
 <table>
   <thead>
     <tr>
@@ -7,7 +9,8 @@
       <th>Name</th>
       <th></th>
       <th></th>
-      <th colspan="5"></th>
+      <th></th>
+      <th colspan="6"></th>
     </tr>
   </thead>
   
@@ -17,9 +20,18 @@
       <td>
         <%= post.title %>
       </td>
-      <td></td>
-      <td></td>
+      <td>
+        <%= post.user.name %>
+      </td>
+      <% if post.user_id = current_user.id %>
+      <td>
+        <%= link_to "編集", edit_post_path(post.id) %>
+      </td>
+      <td>
+        <%= link_to "削除", post_path(post.id), method: :delete %>
+      </td>
+      <% end %>
     </tr>
-    <% end 
+    <% end %>
   </tbody>
 </table>
