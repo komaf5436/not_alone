@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
       <th>Name</th>
+      <th>Title</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,12 +16,17 @@
   
   <tbody>
     <% @posts.each do |post| %>
-    <tr>
-      <td>
-        <%= post.title %>
-      </td>
+    <tr id="post_<%= post.id %>">
       <td>
         <%= post.user.name %>
+      </td>
+      <td>
+        <%= link_to post_path(post.id) %>
+          <%= post.title %>
+        <% end %>
+      </td>
+      <td class="favorite-btn">
+        <%= render "public/favorites/favorite-btn", post: post 
       </td>
       <% if post.user_id == current_user.id %>
       <td>
