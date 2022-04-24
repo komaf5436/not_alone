@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  namespace :public do
+    get 'groups/new'
+    get 'groups/index'
+    get 'groups/show'
+    get 'groups/edit'
+  end
   # ユーザー用
   # URL/users/sign_in...
   devise_for :users, skip: [:passwords], controllers: {
