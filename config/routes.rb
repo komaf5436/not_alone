@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :public do
-    get 'groups/new'
-    get 'groups/index'
-    get 'groups/show'
-    get 'groups/edit'
-  end
   # ユーザー用
   # URL/users/sign_in...
   devise_for :users, skip: [:passwords], controllers: {
@@ -25,6 +19,7 @@ Rails.application.routes.draw do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
     end
+    resources :groups, except: [:destroy]
   end
 
   # 管理者用
