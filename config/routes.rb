@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :groups do
-      get "join" => "groups#join"
+      get 'join' => "groups#join"
+      delete 'all_destroy' => "groups#all_destroy"
     end
   end
 
