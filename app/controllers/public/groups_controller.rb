@@ -7,7 +7,7 @@ class Public::GroupsController < ApplicationController
   end
   
   def create
-    @group = Group.new(group_params)
+    @group = current_user.owned_groups.new(group_params)
     @group.owner_id = current_user.id
     if @group.save
       redirect_to group_path(@group.id)
@@ -35,6 +35,20 @@ class Public::GroupsController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  # グループ参加
+  def join
+    @group = Group.find(params[:group_id])
+    @group.users << current_user
+    redirect_to groups_path
+  end
+  
+  # グループ退会
+  def destroy
+    @group = Group.find(params[:id])
+    @group.users.delete(current_user)
+    redirect_to groups_path
   end
   
   private
