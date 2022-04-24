@@ -18,7 +18,9 @@
     <% @posts.each do |post| %>
     <tr id="post_<%= post.id %>">
       <td>
-        <%= post.user.name %>
+        <%= link_to user_path(post.user_id) do %>
+          <%= post.user.name %>
+        <% end %>
       </td>
       <td>
         <%= link_to post_path(post.id) %>

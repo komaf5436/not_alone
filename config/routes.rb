@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
   # ユーザー用
   # URL/users/sign_in...
   devise_for :users, skip: [:passwords], controllers: {
@@ -14,7 +10,11 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'about' => "homes#about", as: 'about'
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]
