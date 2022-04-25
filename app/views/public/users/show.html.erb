@@ -29,12 +29,16 @@
     
     <p>
       Follow:</br>
-      <%= @user.followings.count %>
+      <%= link_to user_followings_path(@user) do %>
+        <%= @user.followings.count %>
+      <% end %>
     </p>
     
     <p>
       Follower:</br>
-      <%= @user.followers.count %>
+      <%= link_to user_followers_path(@user) do %>
+        <%= @user.followers.count %>
+      <% end %>
     </p>
   <% else %>
     <p>
@@ -49,12 +53,16 @@
     
     <p>
       Follow:</br>
-      <%= @user.followings.count %>
+      <%= link_to user_followings_path(@user) do %>
+        <%= @user.followings.count %>
+      <% end %>
     </p>
     
     <p>
       Follower:</br>
-      <%= @user.followers.count %>
+      <%= link_to user_followers_path(@user) do %>
+        <%= @user.followers.count %>
+      <% end %>
     </p>
   <% end %>
 </div>
