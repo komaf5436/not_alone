@@ -19,5 +19,8 @@
     <% end %>
   <% end %>
   
+  <%= f.label"タグ (,で区切ると複数タグ登録できます)" %>
+  <%= f.text_field :name, value: @tag_list, class: "form_control" %>
+  
   <%= f.submit "保存" %>
 <% end %>
