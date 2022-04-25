@@ -56,6 +56,7 @@ Rails.application.routes.draw do
         get 'search' => "posts#search"
       end
     end
+    resources :users, only: [:index, :show]
     resources :tags do
       get 'search_tag' => "posts#search_tag"
     end

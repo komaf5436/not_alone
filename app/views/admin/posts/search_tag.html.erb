@@ -3,7 +3,7 @@
 
   <!--タグリスト-->
   <% @tag_list.each do |list|%>
-    <%=link_to tag_search_tag_path(tag_id: list.id) do %>
+    <%=link_to admin_tag_search_tag_path(tag_id: list.id) do %>
       <%= list.name %>
     <% end %>
     <%="(#{list.posts.count})" %>
@@ -14,7 +14,7 @@
       <div class="card-body">
       <!--タイトル表示される文字数は２５文字までにしてます-->
         <h6 class="card-title">
-          <%=link_to post_path(post.id) do %>
+          <%=link_to admin_post_path(post.id) do %>
             <%= post.title.truncate(25) %>
           <% end %>
         </h6>
