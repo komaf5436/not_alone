@@ -47,8 +47,8 @@ class User < ApplicationRecord
   
   # ログイン時、退会済みのユーザーが同じアカウントでログイン出来ないようする
   # is_deletedがfalseならtrueを返す
-  def active_for_authentication?
-    super && (is_deleted == false)
+  # def active_for_authentication?
+    # super && (is_deleted == false)
   end
   
 end
