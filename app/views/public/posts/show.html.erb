@@ -21,8 +21,10 @@
   <% end %>
   
   <% @post_tags.each do |tag| %>
-    <%= tag.name %>
-  <% end 
+    <%= link_to tag_search_tag_path(tag_id: tag.id) do %>
+      <%= tag.name %>
+    <% end 
+  <% end %>
   
   <div>
     <!--いいね機能-->

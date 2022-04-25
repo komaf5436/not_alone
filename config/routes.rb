@@ -23,6 +23,9 @@ Rails.application.routes.draw do
       get 'join' => "groups#join"
       delete 'all_destroy' => "groups#all_destroy"
     end
+    resources :tags do
+      get 'search_tag' => "posts#search_tag"
+    end
   end
 
   # 管理者用

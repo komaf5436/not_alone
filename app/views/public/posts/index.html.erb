@@ -1,5 +1,22 @@
 <h1>投稿一覧</h1>
 
+<div>
+  <table>
+    <tbody>
+      <% @tag_list.each do |list| %>
+        <tr>
+          <td>
+            <%= link_to tag_search_tag_path(tag_id: list.id) do %>
+              <%= list.name %>
+            <% end %>
+            <%= "(#{list.posts.count})" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <%= link_to '新規', new_post_path %>
 
 <table>
