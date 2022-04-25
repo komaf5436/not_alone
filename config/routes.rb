@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       get 'followings' => "relationships#followings", as: 'followings'
       get 'followers' => "relationships#followers", as: 'followers'
     end
+    
+    get 'users/:id/unsubscribe' => "users#unsubscribe", as: 'unsubscribe'
+    patch 'users/:id/withdrawal' => "users#withdrawal", as: 'withdrawal'
+    
     resources :posts do
       resources :post_comments, only: [:create, :destroy]
       resource :favorites, only: [:create, :destroy]

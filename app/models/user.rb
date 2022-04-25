@@ -40,4 +40,15 @@ class User < ApplicationRecord
     relationships.find_by(followed_id: user_id).destroy
   end
   
+  # フォローしているか確認
+  def following?(user)
+    followings.include?(user)
+  end
+  
+  # ログイン時、退会済みのユーザーが同じアカウントでログイン出来ないようする
+  # is_deletedがfalseならtrueを返す
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+  
 end
