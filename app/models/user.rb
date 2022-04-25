@@ -45,10 +45,17 @@ class User < ApplicationRecord
     followings.include?(user)
   end
   
+  def self.guest
+    find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
+  
   # ログイン時、退会済みのユーザーが同じアカウントでログイン出来ないようする
   # is_deletedがfalseならtrueを返す
   # def active_for_authentication?
     # super && (is_deleted == false)
-  end
+  # end
   
 end
