@@ -12,6 +12,7 @@ class Public::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post.save
       @post.save_tag(tag_list)
+      flash[:notice] = "投稿しました"
       redirect_to post_path(@post)
     else
       render 'new'
@@ -46,7 +47,12 @@ class Public::PostsController < ApplicationController
     end
     tag_list = params[:post][:name].split(',')
     if post.update(post_params)
+      @old_relations = PostTag.where(post_id: @post.id)
+      @old_relations.each do |relation|
+        relation.delete
+      end
       @post.save_tag(tag_list)
+      flash[:notice] = "編集しました"
       redirect_to post_path(post)
     else
       render 'edit'
@@ -56,6 +62,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = "削除しました"
     redirect_to posts_path
   end
   
