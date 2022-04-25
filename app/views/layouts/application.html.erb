@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DwcPf</title>
+    <title>人見知り's</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,23 +10,29 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
+  <body class="d-flex flex-column vh-100">
+    <header class="skin-bgHeader border-bottom">
       <%= render 'layouts/header' %>
     </header>
 
     <main>
       <% if flash[:notice] %>
-      <div>
-        <p><%= flash[:notice] %></p>
+      <div class="alert alert-primary" role="alert">
+        <p class="notice text-center alert-link"><%= flash[:notice] %></p>
       </div>
       <% end %>
       
     <%= yield %>
     </main>
 
-    <footer>
-      <p>hitomimisiri's.com</p>
+    <footer class="border-top">
+      <div class="container-xxl mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>hitomimisiri's.com</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
