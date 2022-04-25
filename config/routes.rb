@@ -57,6 +57,11 @@ Rails.application.routes.draw do
       end
     end
     resources :users, only: [:index, :show]
+    resources :groups, only: [:index, :show] do
+      collection do
+        get 'search' => "groups#search"
+      end
+    end
     resources :tags do
       get 'search_tag' => "posts#search_tag"
     end
