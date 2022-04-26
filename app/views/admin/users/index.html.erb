@@ -3,7 +3,7 @@
   
     <div class="text-right mt-4 mb-3">
       <%= search_form_for @q, url: search_admin_users_path do |f| %>
-        <%= f.search_field :user_name_cont %>
+        <%= f.search_field :name_cont %>
         <%= f.submit "検索" %>
       <% end %>
     </div>
