@@ -1,9 +1,9 @@
-<div>
-  <div>
-    <div>
-      <h1>検索結果</h1>
+<div class="container mt-sm-5 mb-sm-5 px-sm-0">
+  <div class="row">
+    <div class="col-11">
+      <h1 class="mb-4">検索結果</h1>
 
-      <table>
+      <table class="table table-hover text-center">
         <thead>
           <tr>
             <th>Name</th>
@@ -26,13 +26,14 @@
                 <%= post.title %>
               <% end %>
             </td>
-            <td>
+            <td class="favorite-btn">
               <%= render "public/favorites/favorite-btn", post: post %>
             </td>
           </tr>
           <% end %>
         </tbody>
       </table>
+      <%#= paginate @results %>
     </div>
   </div>
 </div>
