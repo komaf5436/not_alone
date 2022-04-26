@@ -1,14 +1,24 @@
-<h2>人見知り's</h2>
-<p>人見知り同士でも気軽に話が出来、仲を深める交流サイト</p>
+<div class="container">
+  <div class="row mt-sm-5 mb-sm-5">
+    <div class="col-10 mx-auto">
+      <div class="top-main my-sm-4">
+        <div class="justify-content-sm-center">
+          <h2>人見知り's</h2>
+          <p>人見知り同士でも気軽に話が出来、仲を深める交流サイト</p>
+        </div>
 
-<div>
-  <%= link_to "新規登録", new_user_registration_path %>
-</div>
+        <div>
+          <%= link_to "新規登録", new_user_registration_path, class: "btn btn-primary btn-lg btn-block mt-5" %>
+        </div>
+      </div>
 
-<div>
-  <%= link_to "ログイン", new_user_session_path %>
-</div>
+        <div>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-success btn-lg btn-block" %>
+        </div>
 
-<div>
-  <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
+        <div>
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "btn btn-secondary btn-lg btn-block mt-3" %>
+        </div>
+    </div>
+  </div>
 </div>
