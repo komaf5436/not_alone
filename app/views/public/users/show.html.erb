@@ -26,53 +26,45 @@
 
     <div class="col-md-5 offset-1 mt-4">
       <% if @user.id == current_user.id %>
-        <p>
-          Name:</br>
-          <%= @user.name %>
-        </p>
+        <h5 class="font-italic">Name:</br></h5>
+        <p><%= @user.name %></p>
+        
+        <h5 class="font-italic">Introduction:</br></h5>
+        <p><%= @user.introduction %></p>
 
-        <p>
-          Introduction:</br>
-          <%= @user.introduction %>
-        </p>
-
-        <p class="mt-2" style="display: inline-block;">
+        <h5 class="font-italic mt-2" style="display: inline-block;">
           Follow:</br>
           <%= link_to user_followings_path(@user) do %>
             <%= @user.followings.count %>
           <% end %>
-        </p>
+        </h5>
 
-        <p style="display: inline-block; margin-left: 15px;">
+        <h5 class="font-italic" style="display: inline-block; margin-left: 15px;">
           Follower:</br>
           <%= link_to user_followers_path(@user) do %>
             <%= @user.followers.count %>
           <% end %>
-        </p>
+        </h5>
       <% else %>
-        <p>
-          Name:</br>
-          <%= @user.name %>
-        </p>
+        <h5 class="font-italic">Name:</br></h5>
+        <p><%= @user.name %></p>
+        
+        <h5 class="font-italic">Introduction:</br></h5>
+        <p><%= @user.introduction %></p>
 
-        <p>
-          Introduction:</br>
-          <%= @user.introduction %>
-        </p>
-
-        <p class="mt-2" style="display: inline-block;">
+        <h5 class="font-italic mt-2" style="display: inline-block;">
           Follow:</br>
           <%= link_to user_followings_path(@user) do %>
             <%= @user.followings.count %>
           <% end %>
-        </p>
+        </h5>
 
-        <p style="display: inline-block; margin-left: 15px;">
+        <h5 class="font-italic" style="display: inline-block; margin-left: 15px;">
           Follower:</br>
           <%= link_to user_followers_path(@user) do %>
             <%= @user.followers.count %>
           <% end %>
-        </p>
+        </h5>
       <% end %>
     </div>
   </div>
