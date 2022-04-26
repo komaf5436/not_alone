@@ -1,10 +1,16 @@
-<h1>退会手続き</h1>
+<div class="container">
+  <div class="row mt-sm-5 mb-sm-5">
+    <div class="col-md-8">
+        <h1 class="mb-4">退会手続き</h1>
 
-<p>
-  退会手続きをされますと、全サービスのご利用が出来なくなります。</br>
-  再度ご利用をいただく際には、新規で登録する必要があります。</br>
-  本当に退会いたしますか？
-</p>
+        <p>
+          退会手続きをされますと、全サービスのご利用が出来なくなります。</br>
+          再度ご利用をいただく際には、新規で登録する必要があります。</br>
+          本当に退会いたしますか？
+        </p>
 
-<%= link_to "退会する", withdrawal_path, method: :patch %>
-<%= link_to "退会しない", user_path(current_user) %>
+        <%= link_to "退会する", withdrawal_path, method: :patch, class: "btn btn-danger" %>
+        <%= link_to "退会しない", user_path(current_user), class: "btn btn-secondary ml-3" %>
+    </div>
+  </div>
+</div>
