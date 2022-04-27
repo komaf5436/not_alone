@@ -29,6 +29,10 @@
                 <li>
                   <%= link_to "コミュニティ一覧", groups_path, class: 'btn btn-sm btn-outline-dark m-3' %>
                 </li>
+                
+                <li>
+                  <%= link_to "About", about_path, class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
 
                 <li>
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-outline-dark m-3' %>
@@ -53,15 +57,15 @@
               <!--ログイン前-->
               <% else %>
                 <li>
-                  <%= link_to "About", about_path, class: 'btn btn-sm btn-outline-dark m-3' %>
-                </li>
-
-                <li>
                   <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-sm btn-outline-dark m-3' %>
                 </li>
 
                 <li>
                   <%= link_to "ログイン", new_user_session_path, class: 'btn btn-sm btn-outline-dark m-3' %>
+                </li>
+                
+                <li>
+                  <%= link_to "About", about_path, class: 'btn btn-sm btn-outline-dark m-3' %>
                 </li>
               <% end %>
             </ul>
