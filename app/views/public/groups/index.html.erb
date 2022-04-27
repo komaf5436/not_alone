@@ -27,7 +27,7 @@
         <% @groups.each do |group| %>
         <tr>
           <td class="group-img">
-            <%= image_tag group.get_group_image(50, 50) %>
+            <%= image_tag group.get_group_image(60, 60) %>
           </td>
           <td>
             <%= link_to group_path(group.id) do %>
@@ -45,4 +45,5 @@
         <% end %>
       </tbody>
     </table>
+    <%#= paginate @groups %>
 </div>

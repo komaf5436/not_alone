@@ -70,7 +70,7 @@ class Public::GroupsController < ApplicationController
   private
   
   def set_q
-    @q = Group.ransack(params[:id])
+    @q = Group.ransack(params[:q])
   end
   
   def group_params

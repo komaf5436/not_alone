@@ -7,13 +7,15 @@
 <nav class="navbar-expand-lg navbar-light">
   <div class="container">
     <%= form_with model: @user, url: user_session_path do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+      
       <div class="field col-xs-10">
-        <%= f.label :email %><br />
+        <%= f.label :email, "メールアドレス" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field col-xs-10">
-        <%= f.label :password %><br />
+        <%= f.label :password, "パスワード" %><br />
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 

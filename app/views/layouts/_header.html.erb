@@ -15,7 +15,10 @@
             <ul class="navbar-nav ml-auto">
               <!--ユーザーログイン-->
               <% if user_signed_in? %>
-                <p>ようこそ! <%= current_user.name %>さん!</p>
+                <p>
+                  ようこそ!</br>
+                  <%= current_user.name %>さん!
+                </p>
                 <li>
                   <%= link_to "マイページ", user_path(current_user.id), class: 'btn btn-sm btn-outline-dark m-3' %>
                 </li>

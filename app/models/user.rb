@@ -7,11 +7,11 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :user_groups
   has_many :groups, through: :user_groups, dependent: :destroy
   has_many :owned_groups, class_name: "Group"
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
@@ -20,6 +20,13 @@ class User < ApplicationRecord
   
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+  
+  def self.guest
+    find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
   
   # プロフィール画像　登録されていない場合、no_image.jpgを表示させる
   def get_profile_image(width, height)
@@ -44,18 +51,5 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-  
-  def self.guest
-    find_or_create_by!(name: 'guestuser', email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
-    end
-  end
-  
-  # ログイン時、退会済みのユーザーが同じアカウントでログイン出来ないようする
-  # is_deletedがfalseならtrueを返す
-  # def active_for_authentication?
-    # super && (is_deleted == false)
-  # end
   
 end
