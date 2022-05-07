@@ -21,6 +21,8 @@
         
         <div class="text-center mb-4">
           <p><%= @post.body %></p>
+          <!--Natural Language APIの感情分析-->
+          <p>本文の感情分析スコア<%= @post.score %></p>
         </div>
         
         <div class="d-flex flex-wrap justify-content-center mb-4">

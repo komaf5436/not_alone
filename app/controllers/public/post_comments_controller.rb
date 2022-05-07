@@ -4,6 +4,8 @@ class Public::PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = current_user.post_comments.new(post_comment_params)
     @comment.post_id = @post.id
+    # Natural Language APIの感情分析
+    @comment.score = Language.get_data(post_comment_params[:comment])
     @comment.save
   end
   

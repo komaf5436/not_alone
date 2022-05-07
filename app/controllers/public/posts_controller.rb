@@ -12,6 +12,8 @@ class Public::PostsController < ApplicationController
     @post.user_id = current_user.id
     # 受け取った値を「,」で区切って配列にする
     tag_list = params[:post][:tag_ids].split(',')
+    # Natural Language APIの感情分析
+    @post.score = Language.get_data(post_params[:body])
     if @post.save
       @post.save_tags(tag_list)
       flash[:notice] = "投稿しました"
