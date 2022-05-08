@@ -50,6 +50,8 @@ class Public::PostsController < ApplicationController
       end
     end
     tag_list = params[:post][:tag_ids].split(',')
+    # Natural Language APIの感情分析
+    @post.score = Language.get_data(post_params[:body])
     if @post.update(post_params)
       @old_relations = PostTag.where(post_id: @post.id)
       @old_relations.each do |relation|
